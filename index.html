@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            height:100vh;
+            width:100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(21, 154, 207);
+        }
+        .quiz__container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            margin: 20px 0;
+            border-radius: 10px;
+            width: 33rem;
+            background-color: rgb(245, 245, 245);
+            box-shadow: 0,0,10px,#000;
+            display: none;
+        }
+        h1{
+            text-align: center;
+            padding: 1rem;
+        }
+        p{
+            text-align: center;
+            font-weight: 600;
+        }
+        h2{
+            padding: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+      ul{
+        list-style: none;
+        padding: 10px;
+        border-bottom: 1px solid rgb(187, 186, 186); 
+      }
+      li{
+          padding: 1rem;
+          font-size: 0.9rem;
+          font-weight: 600;
+      }
+      label{
+          font-size: 0.9rem;
+          cursor: pointer;
+      }
+      input{
+          cursor: pointer;
+      }
+      .btn{
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: row;
+          margin: 20px 0 20px 0;
+        padding: 10px;
+      }
+      .qs_count{
+          position: absolute;
+          left: 10px;
+          padding:10px;
+         
+      }
+      button{
+          border-radius: 6px;
+          padding: 10px;
+          text-align: center;
+          width: 50%;
+          color: rgb(21, 154, 207);
+          font-size: 1rem;
+          font-weight: 600;
+          border: 2px solid rgb(21, 154, 207);
+          outline: none;
+          background-color: #fff;
+          transition: 0.2s linear;
+      }
+      button:hover{
+        background-color: rgb(21, 154, 207);
+        color:#fff;
+      } 
+      .answer__container{
+          display: none;
+      }
+      .header{
+          padding: 10px 15px;
+          margin-top: 15px;
+          border-bottom: 3px solid rgb(187, 186, 186);
+          display: flex;
+          justify-content: space-between;
+      }
+      .time_left{
+          background-color: rgb(169, 232, 248);
+          padding: 7px 10px;
+          border-radius: 5px;
+      }
+      .time{
+          border-radius: 3px;
+          padding: 3px 5px;
+          background-color: #000;
+          color: #fff;
+      }
+      .start{
+          background-color: #fff;
+          color: rgb(21, 154, 207);
+          padding: 10px 20px;
+          border-radius: 6px;
+          font-size: 26px;
+        font-weight: 600;
+        box-shadow: -1px 3px 3px  rgb(51, 50, 50);
+      }
+      .rules{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;  
+        display: none;          
+        background-color: #fff;
+        border-radius: 6px;
+        padding: 20px 30px;
+        width: 35rem;
+      }
+      .btns{
+          margin: 20px 10px;
+          display: flex;
+          justify-content: flex-end;
+      }
+      .btns button{
+          width:100px;
+          margin-right:10px;
+      }
+      .cont{
+          background-color: rgb(21, 154, 207);
+          color: #fff;
+      }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <div class="start">Start Quiz</div>
+    <div class="rules">
+        <h1>Some Rules of Quiz</h1>
+        <div class="rule">
+            <p>1.Lorem ipsum dolor sit amet consectetur.</p>
+            <p>2.Lorem ipsum dolor sit amet consectetur.</p>
+            <p>3.Lorem ipsum dolor sit amet consectetur.</p>
+            <p>4.Lorem ipsum dolor sit amet consectetur.</p>
+            <p>5.Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <div class="btns">
+            <button class="exit ">Exit Quiz</button>
+            <button class="cont ">Continue</button>
+        </div>
+    </div>
+    <div class="quiz__container" id="quiz">
+        <div class="header">
+            <h4>Awesome Quiz Application</h4>
+            <div class="time_left">
+                <span>Time left</span>
+                <span class="time">15</span>
+            </div>
+        </div>
+        <h2 id="question_title"></h2>
+    
+        <ul>
+          <li>
+            <input type="radio" name="quizs" id="a" class="answer">
+            <label for="a" id="a_text"></label>
+          </li>
+          <li>
+            <input type="radio" name="quizs" id="b" class="answer">
+            <label for="b" id="b_text"></label>
+          </li> 
+          <li>
+            <input type="radio" name="quizs" id="c" class="answer">
+            <label for="c" id="c_text"></label>
+          </li>  
+          <li>
+            <input type="radio" name="quizs" id="d" class="answer">
+            <label for="d" id="d_text"></label>
+          </li> 
+        </ul>    
+        <div class="btn">
+            <div class="qs_count"></div>
+            <button class="submit">Submit</button>
+        </div>
+    </div>
+   </div>
+   <script src="./js/main.js"></script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- <script>
+        let quizData = [
+            {
+                question: 'Who is the President of Uzb?',
+                a:'Tursunov Akobir',
+                b:'Jahongir Tursunov',
+                c:'Khurshidbek Ruziyev',
+                d:'Shavkat Mirziyoyev',
+                correct:'d' 
+            },
+            {
+                question: 'How old is Akobir?',
+                a:16,
+                b:17,
+                c:15,
+                d:18,
+                correct:'a' 
+            },
+            {
+                question: 'Which programming language is the most famous?',
+                a:'Python',
+                b:'Java',
+                c:'Javascript',
+                d:'C++',
+                correct:'c'
+            },
+            {
+                question: 'When launched Javascript?',
+                a:1994,
+                b:1995,
+                c:1996,
+                d:'Answer not given',
+                correct:'b' 
+            },
+            {
+                question: 'Where is located Cambridge',
+                a:'in USA',
+                b:'in Canada',
+                c:'in Great Britain',
+                d:'in Uzbekistan',
+                correct:'c' 
+            }
+
+        ];
+    //console.log(quizData[0].correct);
+
+    let answerEls = document.querySelectorAll('.answer');
+    let question = document.getElementById('question_title');
+    let a_text = document.getElementById('a_text');
+    let b_text = document.getElementById('b_text');
+    let c_text = document.getElementById('c_text');
+    let d_text = document.getElementById('d_text');
+    let submitBtn = document.querySelector('button');
+    
+    let currentQuiz = 0;
+    let score = 0;
+    loadQuiz();
+    function loadQuiz(){
+        deselect();
+        let currentQuizData = quizData[currentQuiz];
+        question.innerText = currentQuizData.question;
+        a_text.innerText = currentQuizData.a;
+        b_text.innerText = currentQuizData.b;
+        c_text.innerText = currentQuizData.c;
+        d_text.innerText = currentQuizData.d;
+    }
+    
+
+    function getSelected(){
+        let answer = undefined;
+        answerEls.forEach(answerEl => {
+            if(answerEl.checked){
+                answer = answerEl.id;
+            }
+        })
+        return answer;
+    }
+    
+
+    function deselect(){
+        answerEls.forEach(answerEl => {
+            answerEl.checked = false;
+        });
+    }
+
+
+    submitBtn.addEventListener('click',() => {
+       
+        const answer = getSelected();
+        if(answer){
+            if(answer ===  quizData[currentQuiz].correct){
+                score++;
+            }
+            currentQuiz++
+            if(currentQuiz < quizData.length){
+                loadQuiz();
+            }else{
+              document.getElementById('quiz').innerHTML = `<p>Your result: <br> <h1> ${score}/${quizData.length} </h1>`;
+            }
+        }
+    })
+
+    </script>-->
+</body> 
+</html>
